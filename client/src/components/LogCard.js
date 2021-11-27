@@ -1,7 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import StarRating from "./StarRating";
+import EditNote from "./EditNote";
 
-export default function LogCard({ log, deleteLog, handleUpdateNotes }) {
-  const { id, pilot, flight, date, distance, origin, destination } = log;
+export default function LogCard({
+  log,
+  deleteLog,
+  handleUpdateNotes,
+  handleUpdateRating,
+}) {
+  const {
+    id,
+    pilot,
+    flight,
+    date,
+    distance,
+    duration,
+    origin,
+    destination,
+    notes,
+    rating,
+  } = log;
   const [isEditing, setIsEditing] = useState(false);
 
   const handleDelete = () => {
@@ -15,28 +33,28 @@ export default function LogCard({ log, deleteLog, handleUpdateNotes }) {
     <div className="log-card">
       <div className="log-text">
         <p>
-          <b>Pilot Name:</b> {pilot.name}
+          <strong>Pilot Name:</strong> {pilot}
         </p>
         <p>
-          <b>Flight Number:</b> {flight.flight_number}
+          <strong>Flight Number:</strong> {flight}
         </p>
         <p>
-          <b>Date:</b> {date}
+          <strong>Date:</strong> {date}
         </p>
         <p>
-          <b>Distance:</b> {distance} miles
+          <strong>Distance:</strong> {distance} miles
         </p>
         <p>
-          <b>Duration:</b> {duration} hours
+          <strong>Duration:</strong> {duration} hours
         </p>
         <p>
-          <b>Origin:</b> {origin}
+          <strong>Origin:</strong> {origin}
         </p>
         <p>
-          <b>Destination:</b> {destination} miles
+          <strong>Destination:</strong> {destination} miles
         </p>
         <p>
-          <b>Notes:</b> $ {notes}{" "}
+          <strong>Notes:</strong> $ {notes}{" "}
           {isEditing ? (
             <EditNote
               setIsEditing={setIsEditing}

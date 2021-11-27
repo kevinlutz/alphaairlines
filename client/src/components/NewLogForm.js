@@ -29,7 +29,7 @@ export default function NewLogForm(addNewLog) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newFlightLogObj),
+      body: JSON.stringify(newLogObj),
     })
       .then((response) => response.json())
       .then((newFlightLogObj) => {
