@@ -8,12 +8,39 @@ export default function LogsContainer({ search }) {
       origin: "ATL",
       destination: "SNA",
       duration: 2,
-      pilot: "jon",
+      pilot: "Thomas Greensboro",
       flight: 870,
       date: "3-2-2021",
       distance: 2000,
-      notes: "great flight",
+      notes:
+        "Clear communication with Air Traffic Control. Grounds crew got us turn around quickly for an on time departure. Flight crew interacted with passengers very professionally.",
+      rating: 1.5,
+    },
+    {
+      id: 1,
+      origin: "ATL",
+      destination: "SNA",
+      duration: 2,
+      pilot: "Thomas Greensboro",
+      flight: 870,
+      date: "3-2-2021",
+      distance: 2000,
+      notes:
+        "Clear communication with Air Traffic Control. Grounds crew got us turn around quickly for an on time departure. Flight crew interacted with passengers very professionally. Very little turbulance with a smooth take off and landing.",
       rating: 4,
+    },
+    {
+      id: 1,
+      origin: "ATL",
+      destination: "SNA",
+      duration: 2,
+      pilot: "Thomas Greensboro",
+      flight: 870,
+      date: "3-2-2021",
+      distance: 2000,
+      notes:
+        "Clear communication with Air Traffic Control. Grounds crew got us turn around quickly for an on time departure. Flight crew interacted with passengers very professionally. Very little turbulance with a smooth take off and landing.",
+      rating: 5,
     },
   ]);
 
@@ -30,7 +57,7 @@ export default function LogsContainer({ search }) {
   // const filteredPilots = logs.filter(
   //   (log) =>
   //     log.pilot.toLowerCase().includes(search.toLowerCase()) ||
-  //     log.flight == search
+  //     log.flight == search || log.origin == search || log.destination == search
   // );
 
   const deleteLog = (id) => {
@@ -65,8 +92,7 @@ export default function LogsContainer({ search }) {
   }
 
   return (
-    <div>
-      <h1>hello</h1>
+    <div className="log-cards">
       {logs.map((log) => {
         return (
           <LogCard

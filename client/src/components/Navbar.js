@@ -3,7 +3,7 @@ import React from "react";
 export default function Navbar() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div className="container-fluid">
           <button
             className="navbar-toggler"
@@ -17,6 +17,11 @@ export default function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
+            {/* <img
+              src="/images/PilotWingsLogo.png"
+              class="img-fluid"
+              alt="Responsive image"
+            /> */}
             <a className="navbar-brand" href="#">
               Alpha Airlines
             </a>
@@ -27,19 +32,26 @@ export default function Navbar() {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Log Flight
+                <a className="nav-link active" href="#">
+                  Logged Flight
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link active">Contact Us</a>
+                <a className="nav-link active" href="#">
+                  Log New Flight
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link active" href="#">
+                  Contact Us
+                </a>
               </li>
             </ul>
             <form className="d-flex">
               <input
                 className="form-control me-2"
                 type="search"
-                placeholder="Search All Logs"
+                placeholder="Search Logged Flights"
                 aria-label="Search"
               />
               <button className="btn btn-outline-success" type="submit">

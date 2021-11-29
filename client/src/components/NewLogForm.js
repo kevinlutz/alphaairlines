@@ -9,6 +9,10 @@ export default function NewLogForm(addNewLog) {
   const [destination, setDestination] = useState("");
   const [date, setDate] = useState("");
   const [notes, setNotes] = useState("");
+  const [airtrafficcontrol, setAirTrafficControl] = useState(0);
+  const [groundscrew, setGroundsCrew] = useState(0);
+  const [flightcrew, setFlightCrew] = useState(0);
+  const [copilot, setCoPilot] = useState(0);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -22,6 +26,10 @@ export default function NewLogForm(addNewLog) {
       destination: destination,
       date: date,
       notes: notes,
+      airtrafficcontrol: airtrafficcontrol,
+      groundscrew: groundscrew,
+      flightcrew: flightcrew,
+      copilot: copilot,
     };
 
     fetch("/logs", {
@@ -138,6 +146,62 @@ export default function NewLogForm(addNewLog) {
           onChange={(e) => setNotes(e.target.value)}
           placeholder="Add Notes Here"
           rows={10}
+        />
+      </label>
+      <label>
+        Air Traffic Control Rating
+        <input
+          className="form-item"
+          required="required"
+          type="number"
+          name="rating"
+          step="1"
+          placeholder="1-5"
+          value={airtrafficcontrol}
+          onChange={(e) => setAirTrafficControl(e.target.value)}
+          style={{ width: "50px", margin: "0px 5px 0px 0px" }}
+        />
+      </label>
+      <label>
+        Grounds Crew Rating
+        <input
+          className="form-item"
+          required="required"
+          type="number"
+          name="rating"
+          step="1"
+          placeholder="1-5"
+          value={groundscrew}
+          onChange={(e) => setGroundsCrew(e.target.value)}
+          style={{ width: "50px", margin: "0px 5px 0px 0px" }}
+        />
+      </label>
+      <label>
+        Flight Crew Rating
+        <input
+          className="form-item"
+          required="required"
+          type="number"
+          name="rating"
+          step="1"
+          placeholder="1-5"
+          value={flightcrew}
+          onChange={(e) => setFlightCrew(e.target.value)}
+          style={{ width: "50px", margin: "0px 5px 0px 0px" }}
+        />
+      </label>
+      <label>
+        Co-Pilot Rating
+        <input
+          className="form-item"
+          required="required"
+          type="number"
+          name="rating"
+          step="1"
+          placeholder="1-5"
+          value={copilot}
+          onChange={(e) => setCoPilot(e.target.value)}
+          style={{ width: "50px", margin: "0px 5px 0px 0px" }}
         />
       </label>
       <button type="submit">Log New Flight</button>

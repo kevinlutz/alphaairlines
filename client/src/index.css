@@ -13,33 +13,154 @@ code {
     monospace;
 }
 
-/*THIS IS MY CSS*/
+/*THE FOLLOWING IS MY CSS*/
 * {
   margin: 0;
   padding: 0;
 }
 
+/* #main {
+} */
+
+/*LOG CARD*/
+
 .log-card {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: center;
-  height: 470px;
-  width: 1000px;
+  height: 650px;
+  width: 450px;
   box-shadow: 4px 6px 15px -3px rgba(0, 0, 0, 0.65);
-  padding: 0px 100px;
+  padding: 0px 30px;
   margin: 20px 30px;
+  /* column-span: all; */
 }
 
-.profilePic {
+.log-cards {
+  display: flex;
+  justify-content: space-around;
+}
+
+.log-card-row {
+  display: flex;
+}
+
+.log-card-row > p {
+  width: 50%;
+}
+
+.log-card:hover {
+  transform: translateY(-0.75px);
+  box-shadow: 4px 6px 15px -1px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+  cursor: pointer;
+  /* opacity: 0.8; */
+  /* mix-blend-mode: unset; */
+}
+
+.log-card:active {
+  transform: translateY(-1px);
+  box-shadow: 4px 6px 8px -1px rgba(0, 0, 0, 0.65);
+  /* opacity: 0.8; */
+}
+
+/*TEXT FONT*/
+.log-text {
+  height: 100%;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.log-text p {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 14px;
+}
+
+/*PROFILE PICTURE*/
+.profile-pic {
   height: 200px;
+  width: 200px;
   border: 4px solid lightgray;
   border-radius: 50%;
+  margin-bottom: 15px;
 }
 
+/*STAR RATING*/
+.ratings {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  width: 95%;
+}
+
+/*RATINGS BOTTOM OF CARD TRASH CAN*/
+.card-bottom {
+  display: flex;
+  height: 145px;
+}
+
+.delete-flight {
+  height: 100%;
+  width: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.delete-flight > button {
+  border: none;
+}
+
+/*RATINGS*/
+.ratings-item {
+  display: flex;
+  align-items: center;
+}
+
+.ratings-item > span {
+  width: 30%;
+}
+
+.star-rating {
+  color: rgba(0, 0, 0, 0.2);
+  font-size: 1.5rem;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.star-rating .foreground {
+  color: rgb(254, 202, 27);
+  position: absolute;
+  display: flex;
+  overflow: hidden;
+}
+
+.star-rating .background {
+  display: flex;
+}
+
+/*HOME PAGE*/
 .captain-stripes {
+  height: calc(100vh);
+  padding-top: 80px;
+  position: relative;
+}
+
+.captain-stripes > img {
+  position: absolute;
+  top: 10%;
+  left: 75%;
+  width: 300px;
+}
+
+/*Home Page Cover Image of Captains Suit Jacket Stripes*/
+/* .captain-stripes {
   background: url(images/CaptainStripes.png) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
+} */

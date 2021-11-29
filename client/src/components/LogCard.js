@@ -32,47 +32,88 @@ export default function LogCard({
   return (
     <div className="log-card">
       <div className="log-text">
-        <p>
-          <strong>Pilot Name:</strong> {pilot}
-        </p>
-        <p>
-          <strong>Flight Number:</strong> {flight}
-        </p>
-        <p>
-          <strong>Date:</strong> {date}
-        </p>
-        <p>
-          <strong>Distance:</strong> {distance} miles
-        </p>
-        <p>
-          <strong>Duration:</strong> {duration} hours
-        </p>
-        <p>
-          <strong>Origin:</strong> {origin}
-        </p>
-        <p>
-          <strong>Destination:</strong> {destination} miles
-        </p>
-        <p>
-          <strong>Notes:</strong> $ {notes}{" "}
-          {isEditing ? (
-            <EditNote
-              setIsEditing={setIsEditing}
-              handleUpdateNotes={handleUpdateNotes}
-              log={log}
-            />
-          ) : (
-            <button onClick={() => setIsEditing((isEditing) => !isEditing)}>
-              Edit
-            </button>
-          )}
-        </p>
+        <img
+          className="profile-pic"
+          src="/images/Male10.png"
+          alt="photo of commanding pilot"
+        />
         <div>
-          Rating:{" "}
-          <StarRating percentage={rating / 5} onClick={handleUpdateRating} />
-        </div>
-        <div>
-          <button onClick={handleDelete}> 🗑️ </button>
+          <p>
+            <strong>Commanding Pilot:</strong> {pilot}
+          </p>
+          <div className="log-card-row">
+            <p>
+              <strong>Flight Number:</strong> DL{flight}
+            </p>
+            <p>
+              <strong>Date:</strong> {date}
+            </p>
+          </div>
+          <div className="log-card-row">
+            <p>
+              <strong>Distance:</strong> {distance} miles
+            </p>
+            <p>
+              <strong>Duration:</strong> {duration} hours
+            </p>
+          </div>
+          <div className="log-card-row">
+            <p>
+              <strong>Origin:</strong> {origin}
+            </p>
+            <p>
+              <strong>Destination:</strong> {destination}
+            </p>
+          </div>
+          <p>
+            <strong>Notes:</strong> {notes}{" "}
+            {isEditing ? (
+              <EditNote
+                setIsEditing={setIsEditing}
+                handleUpdateNotes={handleUpdateNotes}
+                log={log}
+              />
+            ) : (
+              <button onClick={() => setIsEditing((isEditing) => !isEditing)}>
+                Edit
+              </button>
+            )}
+          </p>
+          <div className="card-bottom">
+            <div className="ratings">
+              <div className="ratings-item">
+                <span>Air Traffic Control: </span>
+                <StarRating
+                  percentage={rating / 5}
+                  onClick={handleUpdateRating}
+                />
+              </div>
+              <div className="ratings-item">
+                <span>Grounds Crew: </span>
+                <StarRating
+                  percentage={rating / 5}
+                  onClick={handleUpdateRating}
+                />
+              </div>
+              <div className="ratings-item">
+                <span>Flight Crew: </span>
+                <StarRating
+                  percentage={rating / 5}
+                  onClick={handleUpdateRating}
+                />
+              </div>
+              <div className="ratings-item">
+                <span>Co-Pilot: </span>
+                <StarRating
+                  percentage={rating / 5}
+                  onClick={handleUpdateRating}
+                />
+              </div>
+            </div>
+            <div className="delete-flight">
+              <button onClick={handleDelete}> 🗑️ </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
