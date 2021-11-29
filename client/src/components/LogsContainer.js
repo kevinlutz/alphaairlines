@@ -14,7 +14,7 @@ export default function LogsContainer({ search }) {
       distance: 2000,
       notes:
         "Clear communication with Air Traffic Control. Grounds crew got us turn around quickly for an on time departure. Flight crew interacted with passengers very professionally.",
-      rating: 1.5,
+      rating: 3.5,
     },
     {
       id: 1,

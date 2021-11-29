@@ -64,6 +64,11 @@ code {
   /* opacity: 0.8; */
 }
 
+/*EDIT BUTTON*/
+.edit-button {
+  padding: 0px 8px 0px 8px;
+}
+
 /*TEXT FONT*/
 .log-text {
   height: 100%;

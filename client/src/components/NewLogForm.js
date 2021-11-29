@@ -128,7 +128,7 @@ export default function NewLogForm(addNewLog) {
       <label>
         Date
         <input
-          type="datetime" //correct type?
+          type="string" //correct type?
           name="date"
           placeholder="Date"
           value={date}
@@ -145,7 +145,7 @@ export default function NewLogForm(addNewLog) {
           required={true}
           onChange={(e) => setNotes(e.target.value)}
           placeholder="Add Notes Here"
-          rows={10}
+          rows={4}
         />
       </label>
       <label>
@@ -155,7 +155,7 @@ export default function NewLogForm(addNewLog) {
           required="required"
           type="number"
           name="rating"
-          step="1"
+          step="0.5" //increment my half-stars?
           placeholder="1-5"
           value={airtrafficcontrol}
           onChange={(e) => setAirTrafficControl(e.target.value)}
@@ -169,7 +169,7 @@ export default function NewLogForm(addNewLog) {
           required="required"
           type="number"
           name="rating"
-          step="1"
+          step="0.5" //increment my half-stars?
           placeholder="1-5"
           value={groundscrew}
           onChange={(e) => setGroundsCrew(e.target.value)}
@@ -183,7 +183,7 @@ export default function NewLogForm(addNewLog) {
           required="required"
           type="number"
           name="rating"
-          step="1"
+          step="0.5" //increment my half-stars?
           placeholder="1-5"
           value={flightcrew}
           onChange={(e) => setFlightCrew(e.target.value)}
@@ -197,7 +197,7 @@ export default function NewLogForm(addNewLog) {
           required="required"
           type="number"
           name="rating"
-          step="1"
+          step="0.5" //increment my half-stars?
           placeholder="1-5"
           value={copilot}
           onChange={(e) => setCoPilot(e.target.value)}

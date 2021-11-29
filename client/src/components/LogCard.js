@@ -24,7 +24,7 @@ export default function LogCard({
 
   const handleDelete = () => {
     deleteLog(id);
-    fetch(`/trips/${id}`, {
+    fetch(`/logs/${id}`, {
       method: "DELETE",
     });
   };
@@ -34,7 +34,7 @@ export default function LogCard({
       <div className="log-text">
         <img
           className="profile-pic"
-          src="/images/Male10.png"
+          src="/images/Male10.png" //this image has to be dynamic
           alt="photo of commanding pilot"
         />
         <div>
@@ -74,7 +74,10 @@ export default function LogCard({
                 log={log}
               />
             ) : (
-              <button onClick={() => setIsEditing((isEditing) => !isEditing)}>
+              <button
+                onClick={() => setIsEditing((isEditing) => !isEditing)}
+                className="edit-button"
+              >
                 Edit
               </button>
             )}
@@ -85,28 +88,28 @@ export default function LogCard({
                 <span>Air Traffic Control: </span>
                 <StarRating
                   percentage={rating / 5}
-                  onClick={handleUpdateRating}
+                  onClick={handleUpdateRating} //handleAirtraffiControlRating
                 />
               </div>
               <div className="ratings-item">
                 <span>Grounds Crew: </span>
                 <StarRating
                   percentage={rating / 5}
-                  onClick={handleUpdateRating}
+                  onClick={handleUpdateRating} //handleGroundsCrewRating
                 />
               </div>
               <div className="ratings-item">
                 <span>Flight Crew: </span>
                 <StarRating
                   percentage={rating / 5}
-                  onClick={handleUpdateRating}
+                  onClick={handleUpdateRating} //handleFlightCrewRating
                 />
               </div>
               <div className="ratings-item">
                 <span>Co-Pilot: </span>
                 <StarRating
                   percentage={rating / 5}
-                  onClick={handleUpdateRating}
+                  onClick={handleUpdateRating} //handleCoPilotRating
                 />
               </div>
             </div>
