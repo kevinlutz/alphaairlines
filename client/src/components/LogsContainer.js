@@ -3,13 +3,13 @@ import LogCard from "./LogCard";
 
 export default function LogsContainer({ search }) {
   const [logs, setLogs] = useState([
-    {
+    /*{
       id: 1,
       origin: "ATL",
       destination: "SNA",
       duration: 2,
-      pilot: "Thomas Greensboro",
-      flight: 870,
+      pilot: { name: "Thomas Greeeeeensboro" },
+      flight: { flight: 870 },
       date: "3-2-2021",
       distance: 2000,
       notes:
@@ -21,8 +21,8 @@ export default function LogsContainer({ search }) {
       origin: "ATL",
       destination: "SNA",
       duration: 2,
-      pilot: "Thomas Greensboro",
-      flight: 870,
+      pilot: { name: "Thomas Greensboro" },
+      flight: { flight: 870 },
       date: "3-2-2021",
       distance: 2000,
       notes:
@@ -34,20 +34,20 @@ export default function LogsContainer({ search }) {
       origin: "ATL",
       destination: "SNA",
       duration: 2,
-      pilot: "Thomas Greensboro",
-      flight: 870,
+      pilot: { name: "Thomas Greensboro" },
+      flight: { flight: 870 },
       date: "3-2-2021",
       distance: 2000,
       notes:
         "Clear communication with Air Traffic Control. Grounds crew got us turn around quickly for an on time departure. Flight crew interacted with passengers very professionally. Very little turbulance with a smooth take off and landing.",
       rating: 5,
-    },
+    },*/
   ]);
 
   useEffect(() => {
-    // fetch("/logs")
-    //   .then((r) => r.json())
-    //   .then((allLogData) => setLogs(allLogData));
+    fetch("/logs")
+      .then((r) => r.json())
+      .then((allLogData) => setLogs(allLogData));
   }, []);
 
   const addNewLog = (newLogObj) => {

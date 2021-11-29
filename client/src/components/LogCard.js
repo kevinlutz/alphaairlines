@@ -34,16 +34,16 @@ export default function LogCard({
       <div className="log-text">
         <img
           className="profile-pic"
-          src="/images/Male10.png" //this image has to be dynamic
+          src={pilot.image} //this image has to be dynamic
           alt="photo of commanding pilot"
         />
         <div>
           <p>
-            <strong>Commanding Pilot:</strong> {pilot}
+            <strong>Commanding Pilot:</strong> {pilot.name}
           </p>
           <div className="log-card-row">
             <p>
-              <strong>Flight Number:</strong> DL{flight}
+              <strong>Flight Number:</strong> DL{flight.flight}
             </p>
             <p>
               <strong>Date:</strong> {date}
