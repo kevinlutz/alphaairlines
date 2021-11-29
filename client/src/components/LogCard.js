@@ -18,7 +18,10 @@ export default function LogCard({
     origin,
     destination,
     notes,
-    rating,
+    air_traffic_control,
+    grounds_crew,
+    flight_attendants,
+    co_pilot,
   } = log;
   const [isEditing, setIsEditing] = useState(false);
 
@@ -87,28 +90,28 @@ export default function LogCard({
               <div className="ratings-item">
                 <span>Air Traffic Control: </span>
                 <StarRating
-                  percentage={rating / 5}
+                  percentage={air_traffic_control / 5}
                   onClick={handleUpdateRating} //handleAirtraffiControlRating
                 />
               </div>
               <div className="ratings-item">
                 <span>Grounds Crew: </span>
                 <StarRating
-                  percentage={rating / 5}
+                  percentage={grounds_crew / 5}
                   onClick={handleUpdateRating} //handleGroundsCrewRating
                 />
               </div>
               <div className="ratings-item">
                 <span>Flight Crew: </span>
                 <StarRating
-                  percentage={rating / 5}
+                  percentage={flight_attendants / 5}
                   onClick={handleUpdateRating} //handleFlightCrewRating
                 />
               </div>
               <div className="ratings-item">
                 <span>Co-Pilot: </span>
                 <StarRating
-                  percentage={rating / 5}
+                  percentage={co_pilot / 5}
                   onClick={handleUpdateRating} //handleCoPilotRating
                 />
               </div>
