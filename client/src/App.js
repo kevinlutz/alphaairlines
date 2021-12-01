@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import LogsContainer from "./components/LogsContainer";
 import NewLogForm from "./components/NewLogForm";
-import Contact from "./components/Contact";
+import ContactUs from "./components/ContactUs";
 //REACT ROUTER
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
@@ -25,7 +25,8 @@ function App() {
               path="newlogform"
               element={<NewLogForm /*addNewFlightLog={addNewFlightLog}*/ />}
             />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+
             {/* <Route path="/login" element={<Login />} /> */}
           </Routes>
         </div>

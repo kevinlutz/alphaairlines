@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-export default function NewLogForm(addNewLog) {
-  const [pilot, setPilot] = useState("");
+export default function NewLogForm({ logs, addNewLog }) {
+  const [pilot, setPilot] = useState(0);
   const [flight, setFlight] = useState(0);
   const [duration, setDuration] = useState(0);
   const [distance, setDistance] = useState(0);
@@ -13,23 +13,71 @@ export default function NewLogForm(addNewLog) {
   const [groundscrew, setGroundsCrew] = useState(0);
   const [flightcrew, setFlightCrew] = useState(0);
   const [copilot, setCoPilot] = useState(0);
+  const [pilotArray, setPilotArray] = useState([]);
+  const [flightArray, setFlightArray] = useState([]);
+  const [airportCodes, setAirportCodes] = useState([
+    "ATL",
+    "BOS",
+    "DEN",
+    "MIA",
+    "SLC",
+    "LGA",
+    "JFK",
+    "ABQ",
+    "ORD",
+    "SFO",
+    "SNA",
+    "LAX",
+    "TPA",
+    "IAH",
+    "MSY",
+    "SAN",
+    "SEA",
+    "PHX",
+    "DFW",
+  ]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/pilots")
+      .then((r) => r.json())
+      .then((all_pilots) => setPilotArray(all_pilots))
+      .catch((error) => {
+        console.log(error);
+      });
+    fetch("http://localhost:3000/flights")
+      .then((r) => r.json())
+      .then((all_flights) => setFlightArray(all_flights))
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  //dropdown bar to select pilots name
+  // function handlePilotName(e) {
+  //   setPilotName(e.target.value);
+  //   logs.forEach(function (log) {
+  //     if (log.pilot.name === e.target.value) {
+  //       setPilotId(log.pilot.id);
+  //     }
+  //   });
+  // }
 
   function handleSubmit(e) {
     e.preventDefault();
 
     const newLogObj = {
-      pilot: pilot, //value={?}
-      flight: flight, //value={?}
+      pilot: pilot,
+      flight: flight,
       duration: duration,
       distance: distance,
       origin: origin,
       destination: destination,
       date: date,
       notes: notes,
-      airtrafficcontrol: airtrafficcontrol,
-      groundscrew: groundscrew,
-      flightcrew: flightcrew,
-      copilot: copilot,
+      air_traffic_control: airtrafficcontrol,
+      grounds_crew: groundscrew,
+      flight_crew: flightcrew,
+      co_pilot: copilot,
     };
 
     fetch("/logs", {
@@ -41,67 +89,93 @@ export default function NewLogForm(addNewLog) {
     })
       .then((response) => response.json())
       .then((newFlightLogObj) => {
-        addNewLog(newFlightLogObj);
-      });
+        console.log(newFlightLogObj);
+      })
+      .catch((error) => console.log(error));
   }
 
-  const handlePilot = (e) => {
-    setPilot(e.target.value);
-  };
+  // const handlePilot = (e) => {
+  //   setPilot(e.target.value);
+  // };
 
-  const handleFlight = (e) => {
-    setFlight(e.target.value);
+  // const handleFlight = (e) => {
+  //   setFlight(e.target.value);
+  // };
+
+  const handleNotesChange = (e) => {
+    if (e.target.value.length <= 220) {
+      setNotes(e.target.value);
+    }
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit} className="form">
       <label>
-        Pilot Name:
+        Pilot Name:{" "}
         <select
-          className="form-select"
-          aria-label="Default select example"
-          onChange={handlePilot}
+          className="form-item"
+          required="required"
+          placeholder="Pilot..."
+          onChange={(e) => setPilot(e.target.value)}
         >
-          <option selected>Select Pilot</option>
-          <option value="1">Leah Smith</option>
-          <option value="2">John Baker</option>
-          <option value="3">Tom Anderson</option>
+          <option value="none">Select Pilot...</option>
+          {pilotArray.length > 0 &&
+            pilotArray.map((pilot) => (
+              <option key={pilot.id} value={pilot.id}>
+                {pilot.name}
+              </option>
+            ))}
         </select>
       </label>
       <label>
-        Flight Number:
+        Flight Number:{" "}
         <select
-          className="form-select"
-          aria-label="Default select example"
-          onChange={handleFlight}
+          className="form-item"
+          required="required"
+          placeholder="Flight..."
+          onChange={(e) => setFlight(e.target.value)}
         >
-          <option selected>Select Flight</option>
-          <option value="1">1520</option>
-          <option value="2">7880</option>
-          <option value="3">1970</option>
+          <option value="none">Select Flight...</option>
+          {flightArray.length > 0 &&
+            flightArray.map((flight) => (
+              <option key={flight.id} value={flight.id}>
+                {flight.flight}
+              </option>
+            ))}
         </select>
       </label>
+      <br />
       <label>
-        Origin
-        <input
-          type="string"
-          name="origin"
-          placeholder="Origin"
-          value={origin}
-          required={true}
+        Origin:{" "}
+        <select
+          className="form-item"
+          required="required"
+          placeholder="Origin..."
           onChange={(e) => setOrigin(e.target.value)}
-        />
+        >
+          <option value="none">Select Origin...</option>
+          {airportCodes.map((code) => (
+            <option key={code} value={code}>
+              {code}
+            </option>
+          ))}
+        </select>
       </label>
       <label>
-        Destination
-        <input
-          type="string"
-          name="destination"
-          placeholder="Destination"
-          value={destination}
-          required={true}
+        Destination:{" "}
+        <select
+          className="form-item"
+          required="required"
+          placeholder="Destination..."
           onChange={(e) => setDestination(e.target.value)}
-        />
+        >
+          <option value="none">Select Destination...</option>
+          {airportCodes.map((code) => (
+            <option key={code} value={code}>
+              {code}
+            </option>
+          ))}
+        </select>
       </label>
       <label>
         Duration
@@ -143,7 +217,7 @@ export default function NewLogForm(addNewLog) {
           name="notes"
           value={notes}
           required={true}
-          onChange={(e) => setNotes(e.target.value)}
+          onChange={handleNotesChange}
           placeholder="Add Notes Here"
           rows={4}
         />
