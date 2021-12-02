@@ -10,23 +10,18 @@ export default function LogsContainer({ search }) {
       .then((allLogData) => setLogs(allLogData));
   }, []);
 
+  //CRUD: CREATE and add a new log card.
   const addNewLog = (newLogObj) => {
     setLogs((allLogData) => [...allLogData, newLogObj]);
   };
 
-  // const filteredLogs = logs.filter(
-  //   (log) =>
-  //     log.pilot.name.toLowerCase().includes(search.toLowerCase()) ||
-  //     // log.flight.flight == search ||
-  //     // log.origin == search ||
-  //     // log.destination == search ||
-  // );
-
+  //CRUD: DELETE the log card.
   const deleteLog = (id) => {
     const updatedLogs = logs.filter((log) => log.id !== id);
     setLogs(updatedLogs);
   };
 
+  //CRUD: UPDATE the notes.
   function handleUpdateNotes(updatedNote) {
     const updatedNotesConst = logs.map((log) => {
       if (log.id === updatedNote.id) {
@@ -37,6 +32,14 @@ export default function LogsContainer({ search }) {
     });
     setLogs(updatedNotesConst);
   }
+
+  // const filteredLogs = logs.filter(
+  //   (log) =>
+  //     log.pilot.name.toLowerCase().includes(search.toLowerCase()) ||
+  //     log.destination.toLowerCase().includes(search.toLowerCase()) ||
+  //     log.origin.toLowerCase().includes(search.toLowerCase()) ||
+  //     log.flight.flight == search ||
+  // );
 
   return (
     <div className="log-cards">

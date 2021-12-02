@@ -37,6 +37,7 @@ export default function NewLogForm({ logs, addNewLog }) {
     "DFW",
   ]);
 
+  //Retrieve ALL PILOTS from API
   useEffect(() => {
     fetch("http://localhost:3000/pilots")
       .then((r) => r.json())
@@ -44,6 +45,7 @@ export default function NewLogForm({ logs, addNewLog }) {
       .catch((error) => {
         console.log(error);
       });
+    //Retrieve ALL FLIGHTS from API
     fetch("http://localhost:3000/flights")
       .then((r) => r.json())
       .then((all_flights) => setFlightArray(all_flights))
@@ -51,16 +53,6 @@ export default function NewLogForm({ logs, addNewLog }) {
         console.log(error);
       });
   }, []);
-
-  //dropdown bar to select pilots name
-  // function handlePilotName(e) {
-  //   setPilotName(e.target.value);
-  //   logs.forEach(function (log) {
-  //     if (log.pilot.name === e.target.value) {
-  //       setPilotId(log.pilot.id);
-  //     }
-  //   });
-  // }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -93,14 +85,6 @@ export default function NewLogForm({ logs, addNewLog }) {
       })
       .catch((error) => console.log(error));
   }
-
-  // const handlePilot = (e) => {
-  //   setPilot(e.target.value);
-  // };
-
-  // const handleFlight = (e) => {
-  //   setFlight(e.target.value);
-  // };
 
   const handleNotesChange = (e) => {
     if (e.target.value.length <= 220) {
@@ -213,13 +197,14 @@ export default function NewLogForm({ logs, addNewLog }) {
       <label>
         Notes
         <textarea
-          type="text" //correct type?
+          type="text"
           name="notes"
           value={notes}
           required={true}
           onChange={handleNotesChange}
           placeholder="Add Notes Here"
           rows={4}
+          style={{ width: "400px" }}
         />
       </label>
       <label>
