@@ -13,6 +13,16 @@ class LogsController < ApplicationController
         end
     end
 
+    def destroy
+        new_flight_log = Log.find_by(id: params[:id])
+        if new_flight_log
+            new_flight_log.destroy
+            render json: {message: "Flight log successfully destroyed"}, status: :no_content            
+        else
+            render json: {error: "Flight log not found"}, status: :not_found 
+        end
+    end
+
     private
     
     def flight_log_params

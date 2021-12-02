@@ -178,14 +178,20 @@ a:hover:after {
   height: calc(100vh);
   padding-top: 80px;
   position: relative;
+  /* z-index: 1; */
 }
 
 .captain-stripes > img {
   position: absolute;
   top: 10%;
   left: 75%;
-  width: 300px;
-  /* z-index: 2; */
+  width: 400px;
+  /* z-index: 3; */
+}
+
+.captain-stripes > button {
+  color: white;
+  background-color: black;
 }
 
 /*Home Page Cover Image of Captains Suit Jacket Stripes*/
@@ -201,20 +207,41 @@ a:hover:after {
   /* opacity: 0.7; */
 }
 
+/*LOG NEW FLIGHT FORM PAGE*/
 .form {
   padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: right;
+}
+
+/*CONTACT US*/
+
+.contact-us-container {
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
+}
+
+.contact-us-container {
+  display: flex;
+}
+
+.contact-us-card {
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: black;
+  box-shadow: 4px 6px 15px -1px rgba(0, 0, 0, 0.75);
+  text-decoration: none;
+  padding: 10px;
+  color: white;
 }
 
 /*RESPONSIVENESS*/
 
 /*INPUT FIELDS*/
-/*
-<label class="custom-field one"></label>
-  <input type="text" required/>
-  <span class="placeholder">Enter Text</span>
-</label>
-
-.custom-field.one input {
+/* .custom-field.one input {
   background: none;
   border: 2px solid #ddd;
   transition: border-color 0.3s ease;
@@ -235,5 +262,4 @@ a:hover:after {
 .custom-field.one input:focus + .placeholder {
   top: 20px;
   background: #fff;
-}
-*/
+} */

@@ -16,6 +16,7 @@ function App() {
   return (
     <>
       <Router>
+        {/* <Home path="/" element={<Home />} /> */}
         <Navbar />
         <div id="main">
           <Routes>

@@ -6,8 +6,10 @@ Rails.application.routes.draw do
 
   get '/logs', to: 'logs#index'
   post '/logs', to: 'logs#create'
+  delete '/logs', to: 'logs#destroy'
   get '/pilots', to: 'pilots#index'
   get '/flights', to: 'flights#index'
+
 
   # post '/newlogform', to: 'logs#create'
   # delete '/deletelog', to: 'logs#destroy'

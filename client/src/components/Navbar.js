@@ -53,6 +53,7 @@ export default function Navbar() {
                 type="search"
                 placeholder="Search Logged Flights"
                 aria-label="Search"
+                // onChange={(e) => setSearch(e.target.value)}
               />
               <button className="btn btn-outline-success" type="submit">
                 Search

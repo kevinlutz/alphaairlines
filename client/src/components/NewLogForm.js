@@ -153,7 +153,7 @@ export default function NewLogForm({ logs, addNewLog }) {
           placeholder="Origin..."
           onChange={(e) => setOrigin(e.target.value)}
         >
-          <option value="none">Select Origin...</option>
+          <option value="none">Airport Code</option>
           {airportCodes.map((code) => (
             <option key={code} value={code}>
               {code}
@@ -169,7 +169,7 @@ export default function NewLogForm({ logs, addNewLog }) {
           placeholder="Destination..."
           onChange={(e) => setDestination(e.target.value)}
         >
-          <option value="none">Select Destination...</option>
+          <option value="none">Airport Code</option>
           {airportCodes.map((code) => (
             <option key={code} value={code}>
               {code}
@@ -202,7 +202,7 @@ export default function NewLogForm({ logs, addNewLog }) {
       <label>
         Date
         <input
-          type="string" //correct type?
+          type="string"
           name="date"
           placeholder="Date"
           value={date}
@@ -261,7 +261,7 @@ export default function NewLogForm({ logs, addNewLog }) {
           placeholder="1-5"
           value={flightcrew}
           onChange={(e) => setFlightCrew(e.target.value)}
-          style={{ width: "50px", margin: "0px 5px 0px 0px" }}
+          style={{ width: "50px", margin: "0px 5px 5px 0px" }}
         />
       </label>
       <label>

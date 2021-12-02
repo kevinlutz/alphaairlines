@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Home() {
   return (
-    <>
+    <div>
       <div
         className="captain-stripes"
         style={{
@@ -16,7 +16,9 @@ export default function Home() {
           alt="alpha airlines wings logo"
           className="logo"
         />
+        <h1>Flight Logs Made Easy</h1>
+        <button>Enter</button>
       </div>
-    </>
+    </div>
   );
 }
