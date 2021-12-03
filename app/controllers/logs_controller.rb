@@ -23,9 +23,23 @@ class LogsController < ApplicationController
         end
     end
 
+    def update
+        note = Log.find_by(id: params[:id])
+        note.update(note_params)
+        if note.valid?
+            render json: note, status: :ok
+        else
+            render json: {errors: note.errors.full_messages}, status: :unprocessable_entity
+        end
+    end
+
     private
     
     def flight_log_params
-        params.permit(:origin, :destination, :duration, :date, :distance, :notes, :air_traffic_control, :grounds_crew, :flight_crew, :co_pilot, :pilot_id, :flight_id)
+        params.permit(:origin, :destination, :duration, :date, :distance, :notes, :air_traffic_control, :grounds_crew, :flight_attendants, :co_pilot, :pilot_id, :flight_id)
+    end
+
+    def note_params
+        params.permit(:notes)
     end
 end

@@ -11,7 +11,7 @@ export default function NewLogForm({ logs, addNewLog }) {
   const [notes, setNotes] = useState("");
   const [airtrafficcontrol, setAirTrafficControl] = useState(0);
   const [groundscrew, setGroundsCrew] = useState(0);
-  const [flightcrew, setFlightCrew] = useState(0);
+  const [flightattendants, setFlightAttendants] = useState(0);
   const [copilot, setCoPilot] = useState(0);
   const [pilotArray, setPilotArray] = useState([]);
   const [flightArray, setFlightArray] = useState([]);
@@ -54,12 +54,14 @@ export default function NewLogForm({ logs, addNewLog }) {
       });
   }, []);
 
+  //SUBMIT NEW LOG
   function handleSubmit(e) {
     e.preventDefault();
 
-    const newLogObj = {
-      pilot: pilot,
-      flight: flight,
+    //CREATE NEW LOG OBJECT
+    const newLog = {
+      pilot_id: pilot,
+      flight_id: flight,
       duration: duration,
       distance: distance,
       origin: origin,
@@ -68,24 +70,26 @@ export default function NewLogForm({ logs, addNewLog }) {
       notes: notes,
       air_traffic_control: airtrafficcontrol,
       grounds_crew: groundscrew,
-      flight_crew: flightcrew,
+      flight_attendants: flightattendants,
       co_pilot: copilot,
     };
 
-    fetch("/logs", {
+    fetch("http://localhost:3000/logs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newLogObj),
+      body: JSON.stringify(newLog),
     })
       .then((response) => response.json())
-      .then((newFlightLogObj) => {
-        console.log(newFlightLogObj);
+      .then((newLog) => {
+        console.log(newLog);
+        addNewLog(newLog);
       })
       .catch((error) => console.log(error));
   }
 
+  //HANDLE NOTE CHANGE
   const handleNotesChange = (e) => {
     if (e.target.value.length <= 220) {
       setNotes(e.target.value);
@@ -214,7 +218,7 @@ export default function NewLogForm({ logs, addNewLog }) {
           required="required"
           type="number"
           name="rating"
-          step="0.5" //increment my half-stars?
+          step="0.5" //set range to 1-5
           placeholder="1-5"
           value={airtrafficcontrol}
           onChange={(e) => setAirTrafficControl(e.target.value)}
@@ -228,7 +232,7 @@ export default function NewLogForm({ logs, addNewLog }) {
           required="required"
           type="number"
           name="rating"
-          step="0.5" //increment my half-stars?
+          step="0.5" //set range to 1-5
           placeholder="1-5"
           value={groundscrew}
           onChange={(e) => setGroundsCrew(e.target.value)}
@@ -242,10 +246,10 @@ export default function NewLogForm({ logs, addNewLog }) {
           required="required"
           type="number"
           name="rating"
-          step="0.5" //increment my half-stars?
+          step="0.5" //set range to 1-5
           placeholder="1-5"
-          value={flightcrew}
-          onChange={(e) => setFlightCrew(e.target.value)}
+          value={flightattendants}
+          onChange={(e) => setFlightAttendants(e.target.value)}
           style={{ width: "50px", margin: "0px 5px 5px 0px" }}
         />
       </label>
@@ -256,7 +260,7 @@ export default function NewLogForm({ logs, addNewLog }) {
           required="required"
           type="number"
           name="rating"
-          step="0.5" //increment my half-stars?
+          step="0.5" //set range to 1-5
           placeholder="1-5"
           value={copilot}
           onChange={(e) => setCoPilot(e.target.value)}

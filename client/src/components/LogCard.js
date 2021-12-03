@@ -68,7 +68,7 @@ export default function LogCard({
               <strong>Destination:</strong> {destination}
             </p>
           </div>
-          <p>
+          <div>
             <strong>Notes:</strong> {notes}{" "}
             {isEditing ? (
               <EditNote
@@ -84,7 +84,7 @@ export default function LogCard({
                 Edit
               </button>
             )}
-          </p>
+          </div>
           <div className="card-bottom">
             <div className="ratings">
               <div className="ratings-item">

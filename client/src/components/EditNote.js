@@ -4,24 +4,29 @@ function EditNote({ log, handleUpdateNotes, setIsEditing }) {
   const { id, notes } = log;
   const [updatedNote, setUpdatedNote] = useState(notes);
 
-  function handleEditForm(e) {
-    e.preventDefault();
+  // function handleEditForm(e) {
+  //   e.preventDefault();
 
-    fetch(`/trips/${id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ note: updatedNote }),
-    })
-      .then((resp) => resp.json())
-      .then((updatedNote) => handleUpdateNotes(updatedNote));
+  //   fetch(`/trips/${id}`, {
+  //     method: "PATCH",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ note: updatedNote }),
+  //   })
+  //     .then((resp) => resp.json())
+  //     .then((updatedNote) => handleUpdateNotes(updatedNote));
 
-    setIsEditing(false);
-  }
+  //   setIsEditing(false);
+  // }
 
   return (
-    <form onSubmit={handleEditForm}>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleUpdateNotes(id, { notes: updatedNote });
+      }}
+    >
       <textarea
         id="note"
         type="number"

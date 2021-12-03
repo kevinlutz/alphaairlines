@@ -8,20 +8,56 @@ import NewLogForm from "./components/NewLogForm";
 import ContactUs from "./components/ContactUs";
 //REACT ROUTER
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
   const [search, setSearch] = useState("");
+  const [logs, setLogs] = useState([]);
+  const [filteredLogs, setFilteredLogs] = useState([]);
+
+  //CRUD: READ all logs
+  useEffect(() => {
+    fetch("/logs")
+      .then((r) => r.json())
+      .then((allLogData) => {
+        setLogs(allLogData);
+        setFilteredLogs(allLogData);
+      });
+  }, []);
+
+  const onChangeSearch = (e) => {
+    const updatedLogs = logs.filter(
+      (log) =>
+        log.pilot.name.toLowerCase().includes(e.target.value.toLowerCase()) ||
+        log.destination.toLowerCase().includes(e.target.value.toLowerCase()) ||
+        log.origin.toLowerCase().includes(e.target.value.toLowerCase()) ||
+        log.flight.flight == e.target.value
+    );
+    setFilteredLogs(updatedLogs);
+  };
 
   return (
     <>
       <Router>
-        {/* <Home path="/" element={<Home />} /> */}
-        <Navbar />
+        <Navbar
+          search={search}
+          setSearch={setSearch}
+          onChangeSearch={onChangeSearch}
+        />
         <div id="main">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/logscontainer" element={<LogsContainer />} />
+            <Route
+              path="/logscontainer"
+              element={
+                <LogsContainer
+                  filteredLogs={filteredLogs}
+                  setFilteredLogs={setFilteredLogs}
+                  logs={logs}
+                  setLogs={setLogs}
+                />
+              }
+            />
             <Route
               path="newlogform"
               element={<NewLogForm /*addNewFlightLog={addNewFlightLog}*/ />}

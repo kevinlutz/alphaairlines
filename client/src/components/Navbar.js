@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Navbar() {
+export default function Navbar({ search, setSearch, onChangeSearch }) {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -53,11 +53,9 @@ export default function Navbar() {
                 type="search"
                 placeholder="Search Logged Flights"
                 aria-label="Search"
-                // onChange={(e) => setSearch(e.target.value)}
+                onChange={onChangeSearch}
+                // value={search}
               />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
             </form>
           </div>
         </div>
