@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { addNewLog } from "./LogsContainer";
 
-export default function NewLogForm({ logs, addNewLog }) {
+export default function NewLogForm({ logs }) {
   const [pilot, setPilot] = useState(0);
   const [flight, setFlight] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -84,7 +85,7 @@ export default function NewLogForm({ logs, addNewLog }) {
       .then((response) => response.json())
       .then((newLog) => {
         console.log(newLog);
-        addNewLog(newLog);
+        // addNewLog(newLog);
       })
       .catch((error) => console.log(error));
   }

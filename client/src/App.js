@@ -31,7 +31,7 @@ function App() {
         log.pilot.name.toLowerCase().includes(e.target.value.toLowerCase()) ||
         log.destination.toLowerCase().includes(e.target.value.toLowerCase()) ||
         log.origin.toLowerCase().includes(e.target.value.toLowerCase()) ||
-        log.flight.flight == e.target.value
+        log.flight.flight === e.target.value
     );
     setFilteredLogs(updatedLogs);
   };

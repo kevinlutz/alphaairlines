@@ -38,7 +38,7 @@ export default function LogCard({
         <img
           className="profile-pic"
           src={pilot.image} //this image has to be dynamic
-          alt="photo of commanding pilot"
+          alt="commanding pilot"
         />
         <div>
           <p>

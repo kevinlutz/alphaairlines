@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import LogCard from "./LogCard";
 
 export default function LogsContainer({
@@ -60,7 +60,7 @@ export default function LogsContainer({
       {filteredLogs.map((log) => {
         return (
           <LogCard
-            deleteLog={deleteLog} //Persisting?
+            deleteLog={deleteLog}
             handleUpdateNotes={handleUpdateNotes}
             key={log.id}
             log={log}

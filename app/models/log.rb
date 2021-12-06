@@ -12,5 +12,5 @@ class Log < ApplicationRecord
   validates :air_traffic_control, presence: true
   validates :grounds_crew, presence: true
   validates :co_pilot, presence: true
-  validates :id, presence: true
+  # validates :id, optional: true
 end
