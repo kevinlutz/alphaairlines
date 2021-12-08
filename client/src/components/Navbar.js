@@ -17,11 +17,11 @@ export default function Navbar({ search, setSearch, onChangeSearch }) {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            {/* <img
-              src="/images/PilotWingsLogo.png"
+            <img
+              src="/images/croppedwings.png"
               class="img-fluid"
               alt="Responsive image"
-            /> */}
+            />
             <a className="navbar-brand" href="/">
               Alpha Airlines
             </a>

@@ -53,16 +53,20 @@ a:hover:after {
   /* flex-wrap: wrap; */
   justify-content: space-around;
   align-items: center;
-  height: 650px;
-  width: 450px;
+  min-height: 650px;
+  width: 435px;
   box-shadow: 4px 6px 15px -3px rgba(0, 0, 0, 0.65);
   padding: 0px 30px;
-  margin: 20px 30px;
+
   /* column-span: all; */
 }
 
 .log-cards {
   display: flex;
+  width: 1368px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 25px;
   justify-content: space-around;
   padding-top: 80px;
 }
@@ -207,6 +211,45 @@ a:hover:after {
   /* opacity: 0.7; */
 }
 
+#logo {
+  filter: blur(0);
+  position: absolute;
+  top: 10%;
+  left: 63%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+}
+
+#logo > img {
+  width: 400px;
+  transform: translateX(80px);
+}
+
+.slogan {
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slogan > h1 {
+  color: white;
+  font-size: 80px;
+}
+
+.slogan > button {
+  color: white;
+  background-color: black;
+  padding: 10px 80px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
 /*LOG NEW FLIGHT FORM PAGE*/
 .form {
   padding-top: 80px;
@@ -231,11 +274,16 @@ a:hover:after {
 .contact-us-card {
   margin-left: 10px;
   margin-right: 10px;
-  background-color: black;
+  background-color: #cacaca;
   box-shadow: 4px 6px 15px -1px rgba(0, 0, 0, 0.75);
   text-decoration: none;
   padding: 10px;
-  color: white;
+  color: black;
+}
+
+/*HOME*/
+.home-container {
+  width: 100%;
 }
 
 /*RESPONSIVENESS*/

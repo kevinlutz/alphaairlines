@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Home() {
   return (
-    <div>
+    <div className="home-container">
       <div
         className="captain-stripes"
         style={{
@@ -10,14 +10,13 @@ export default function Home() {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
-      >
-        <img
-          src="/images/PilotWingsLogo.png"
-          alt="alpha airlines wings logo"
-          className="logo"
-        />
-        <h1>Flight Logs Made Easy</h1>
-        <button>Enter</button>
+      ></div>
+      <div id="logo">
+        <img src="/images/PilotWingsLogo.png" alt="alpha airlines wings logo" />
+        <div className="slogan">
+          <h1>Flight Logs Made Easy</h1>
+          <button>Enter</button>
+        </div>
       </div>
     </div>
   );

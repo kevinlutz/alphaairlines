@@ -99,8 +99,8 @@ export default function NewLogForm({ logs }) {
 
   return (
     <form onSubmit={handleSubmit} className="form">
-      <label>
-        Pilot Name:{" "}
+      <div className="form-input-group">
+        <label>Pilot Name: </label>
         <select
           className="form-item"
           required="required"
@@ -115,9 +115,9 @@ export default function NewLogForm({ logs }) {
               </option>
             ))}
         </select>
-      </label>
-      <label>
-        Flight Number:{" "}
+      </div>
+      <div className="form-input-group">
+        <label>Flight Number: </label>
         <select
           className="form-item"
           required="required"
@@ -132,42 +132,42 @@ export default function NewLogForm({ logs }) {
               </option>
             ))}
         </select>
-      </label>
-      <br />
-      <label>
-        Origin:{" "}
+      </div>
+
+      <div className="form-input-group">
+        <label>Origin: </label>
         <select
           className="form-item"
           required="required"
           placeholder="Origin..."
           onChange={(e) => setOrigin(e.target.value)}
         >
-          <option value="none">Airport Code</option>
+          <option value="none">Airport Code:</option>
           {airportCodes.map((code) => (
             <option key={code} value={code}>
               {code}
             </option>
           ))}
         </select>
-      </label>
-      <label>
-        Destination:{" "}
+      </div>
+      <div className="form-input-group">
+        <label>Destination: </label>
         <select
           className="form-item"
           required="required"
           placeholder="Destination..."
           onChange={(e) => setDestination(e.target.value)}
         >
-          <option value="none">Airport Code</option>
+          <option value="none">Airport Code:</option>
           {airportCodes.map((code) => (
             <option key={code} value={code}>
               {code}
             </option>
           ))}
         </select>
-      </label>
-      <label>
-        Duration
+      </div>
+      <div className="form-input-group">
+        <label>Duration:</label>
         <input
           type="integer"
           name="duration"
@@ -176,9 +176,9 @@ export default function NewLogForm({ logs }) {
           required={true}
           onChange={(e) => setDuration(e.target.value)}
         />
-      </label>
-      <label>
-        Distance
+      </div>
+      <div className="form-input-group">
+        <label>Distance:</label>
         <input
           type="integer"
           name="distance"
@@ -187,9 +187,9 @@ export default function NewLogForm({ logs }) {
           required={true}
           onChange={(e) => setDistance(e.target.value)}
         />
-      </label>
-      <label>
-        Date
+      </div>
+      <div className="form-input-group">
+        <label>Date:</label>
         <input
           type="string"
           name="date"
@@ -198,9 +198,9 @@ export default function NewLogForm({ logs }) {
           required={true}
           onChange={(e) => setDate(e.target.value)}
         />
-      </label>
-      <label>
-        Notes
+      </div>
+      <div className="form-input-group">
+        <label>Notes:</label>
         <textarea
           type="text"
           name="notes"
@@ -211,9 +211,9 @@ export default function NewLogForm({ logs }) {
           rows={4}
           style={{ width: "400px" }}
         />
-      </label>
-      <label>
-        Air Traffic Control Rating
+      </div>
+      <div className="form-input-group">
+        <label>Air Traffic Control Rating:</label>
         <input
           className="form-item"
           required="required"
@@ -225,9 +225,9 @@ export default function NewLogForm({ logs }) {
           onChange={(e) => setAirTrafficControl(e.target.value)}
           style={{ width: "50px", margin: "0px 5px 0px 0px" }}
         />
-      </label>
-      <label>
-        Grounds Crew Rating
+      </div>
+      <div className="form-input-group">
+        <label>Grounds Crew Rating:</label>
         <input
           className="form-item"
           required="required"
@@ -239,9 +239,9 @@ export default function NewLogForm({ logs }) {
           onChange={(e) => setGroundsCrew(e.target.value)}
           style={{ width: "50px", margin: "0px 5px 0px 0px" }}
         />
-      </label>
-      <label>
-        Flight Crew Rating
+      </div>
+      <div className="form-input-group">
+        <label>Flight Crew Rating:</label>
         <input
           className="form-item"
           required="required"
@@ -253,9 +253,9 @@ export default function NewLogForm({ logs }) {
           onChange={(e) => setFlightAttendants(e.target.value)}
           style={{ width: "50px", margin: "0px 5px 5px 0px" }}
         />
-      </label>
-      <label>
-        Co-Pilot Rating
+      </div>
+      <div className="form-input-group">
+        <label>Co-Pilot Rating:</label>
         <input
           className="form-item"
           required="required"
@@ -267,8 +267,11 @@ export default function NewLogForm({ logs }) {
           onChange={(e) => setCoPilot(e.target.value)}
           style={{ width: "50px", margin: "0px 5px 0px 0px" }}
         />
-      </label>
-      <button type="submit">Log New Flight</button>
+      </div>
+
+      <button className="form-button" type="submit">
+        Log New Flight
+      </button>
     </form>
   );
 }
